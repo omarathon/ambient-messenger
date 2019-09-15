@@ -20,9 +20,9 @@ It's important that you use the ``beginGarbageCollector`` method to begin removi
 
 ## Functionality
 
-Below is a tl;dr for the main methods provided by the ``AmbientMessenger``:
+Below is a tl;dr for the main methods provided by the [AmbientMessenger](src/main/java/dev/omarathon/ambientmessenger/AmbientMessenger.java):
 
-- ``sendMessage`` - Send an ambient message to a given Player. You must provide the Player to send it to, the String of the message and the SQL Timestamp for when the message will expire. If the player is online, it's sent to them instantly as normal. Otherwise, it's sent to them when they re-join the server, if it has not expired.
+- ``sendMessage`` - Send an ambient message to a given [Player](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/Player.html). You must provide the [Player](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/Player.html) to send it to, the String of the message and the SQL [Timestamp](https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html) for when the message will expire. If the [Player](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/Player.html) is online, it's sent to them instantly as normal. Otherwise, it's sent to them when they re-join the server, if it has not expired.
 - ``beginGarbageCollector`` - Constructs a [ScheduledGarbageCollector](src/main/java/dev/omarathon/ambientmessenger/garbagecollector/ScheduledGarbageCollector.java) and sets it running with either the given cooldown or a default one. Note that it's ran as soon as this method is called, and then it will be ran indefinitely on a cooldown as specified.
 - ``emptyQueue`` - An additional admin method for if you'd like to cancel all of the ambient messages in the queue (essentially empties the internal database table).
 
