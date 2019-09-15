@@ -1,3 +1,5 @@
+[![Latest Release](https://img.shields.io/github/release/omarathon/ambient-messenger.svg)](https://github.com/omarathon/ambient-messenger/releases/latest) [![](https://jitpack.io/v/omarathon/ambient-messenger.svg)](https://jitpack.io/#omarathon/ambient-messenger)
+
 # Ambient Messenger
 
 A Minecraft Server API plugin which allows the sending of "ambient" messages, i.e messages to players whether they're online or offline.
