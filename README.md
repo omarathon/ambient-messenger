@@ -21,7 +21,7 @@ getServer().getPluginManager().registerEvents(ambientMessenger, this);
 // do what you want with your AmbientMessenger...
 ```
 
-where **#** is an SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object.
+ - where **#** is an SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object.
 
 When constructing an AmbientMessenger, one must provide to it their SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object, from which SQL queries shall be executed from, and additionally the name of the table for the plugin to use. By default, it uses a table named **AmbientMessenger_Messages**.
 
