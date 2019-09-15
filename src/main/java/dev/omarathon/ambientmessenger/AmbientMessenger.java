@@ -4,6 +4,7 @@ import dev.omarathon.ambientmessenger.garbagecollector.ScheduledGarbageCollector
 import dev.omarathon.ambientmessenger.sql.Sql;
 import dev.omarathon.ambientmessenger.sql.SqlConstants;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -52,16 +53,17 @@ public final class AmbientMessenger implements Listener {
     }
 
     // throws SQLException if error adding the message to the table for an offline player
-    public void sendMessage(Player player, String message, Timestamp expiry) throws SQLException {
+    public void sendMessage(OfflinePlayer offlinePlayer, String message, Timestamp expiry) throws SQLException {
         if (expiry.before(Timestamp.valueOf(LocalDateTime.now()))) {
-            Bukkit.getLogger().warning("Not sending message: " + message + " to player with UUID " + player.getUniqueId() + " because it has already expired!");
+            Bukkit.getLogger().warning("Not sending message: " + message + " to player with UUID " + offlinePlayer.getUniqueId() + " because it has already expired!");
             return;
         }
-        if (player.isOnline()) {
-            player.sendMessage(message);
+        Player player = offlinePlayer.getPlayer();
+        if (player == null) {
+            sql.addMessage(offlinePlayer.getUniqueId().toString(), message, expiry);
         }
         else {
-            sql.addMessage(player.getUniqueId().toString(), message, expiry);
+            player.sendMessage(message);
         }
     }
 
