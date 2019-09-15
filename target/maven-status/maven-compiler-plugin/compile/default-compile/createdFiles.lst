@@ -1,0 +1,6 @@
+dev\omarathon\ambientmessenger\garbagecollector\ScheduledGarbageCollector.class
+dev\omarathon\ambientmessenger\AmbientMessenger.class
+dev\omarathon\ambientmessenger\garbagecollector\RepeatingTask.class
+dev\omarathon\ambientmessenger\sql\SqlConstants.class
+dev\omarathon\ambientmessenger\garbagecollector\RepeatingTask$1.class
+dev\omarathon\ambientmessenger\sql\Sql.class

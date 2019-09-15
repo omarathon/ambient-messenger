@@ -1,0 +1,4 @@
+name: AmbientMessenger
+version: ${project.version}
+main: dev.omarathon.ambientmessenger.AmbientMessenger
+api-version: 1.13
