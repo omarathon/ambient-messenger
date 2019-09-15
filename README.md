@@ -8,7 +8,7 @@ However, if they're offline, it's stored in a MySQL table, and retrieved when th
 
 ## Usage
 
-Firstly, add the API as a dependency. It's hosted on JitPack.
+Firstly, add the API as a dependency. It's hosted on [JitPack](jitpack.io/#omarathon/ambient-messenger/).
 
 Since the API listens to ``onPlayerJoin`` events, one must register the [AmbientMessenger](src/main/java/dev/omarathon/ambientmessenger/AmbientMessenger.java) Listener class as a listener.
 
