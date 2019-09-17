@@ -17,7 +17,7 @@ public class Sql {
 
     public void createTableIfNotExist() throws SQLException {
         PreparedStatement statement = connection.prepareStatement(
-                "CREATE TABLE IF NOT EXISTS " + table + " (" + SqlConstants.ID_FIELD + " MEDIUMINT NOT NULL AUTO_INCREMENT, " + SqlConstants.UUID_FIELD + " CHAR(36) NOT NULL, " + SqlConstants.MESSAGE_FIELD + " TEXT NOT NULL, " + SqlConstants.EXPIRY_FIELD + " TIMESTAMP NOT NULL)"
+                "CREATE TABLE IF NOT EXISTS " + table + " (" + SqlConstants.ID_FIELD + " MEDIUMINT NOT NULL AUTO_INCREMENT, " + SqlConstants.UUID_FIELD + " CHAR(36) NOT NULL, " + SqlConstants.MESSAGE_FIELD + " TEXT NOT NULL, " + SqlConstants.EXPIRY_FIELD + " TIMESTAMP NOT NULL CONSTRAINT " + SqlConstants.ID_FIELD + " PRIMARY KEY (" + SqlConstants.ID_FIELD + "))"
         );
         statement.execute();
     }
