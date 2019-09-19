@@ -37,7 +37,7 @@ You can use use the ``beginGarbageCollector`` method to reset the garbage collec
 
 When your plugin shuts down, i.e in its ``onDisable`` method, you **must** stop the garbage collector.
 
-For an [AmbientMessenger](src/main/java/dev/omarathon/ambientmessenger/AmbientMessenger.java) in the ``ambientMessenger`` variable one may do this like so:
+For an [AmbientMessenger](src/main/java/dev/omarathon/ambientmessenger/AmbientMessenger.java) in a variable named ``ambientMessenger``, one may do this like so:
 
 ```java
 ambientMessenger.getGarbageCollector().stop();
