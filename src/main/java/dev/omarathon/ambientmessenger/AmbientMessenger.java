@@ -25,15 +25,15 @@ public final class AmbientMessenger implements Listener {
 
     }
 
-    public AmbientMessenger(Connection sqlConnection) throws SQLException {
-        this(sqlConnection, "AmbientMessenger_Messages");
+    public AmbientMessenger(Connection sqlConnection, boolean broadcast) throws SQLException {
+        this(sqlConnection, broadcast, "AmbientMessenger_Messages");
     }
 
     // throws SQLException if it failed to create the table
-    public AmbientMessenger(Connection sqlConnection, String tableName) throws SQLException {
+    public AmbientMessenger(Connection sqlConnection, boolean broadcast, String tableName) throws SQLException {
         sql = new Sql(sqlConnection, tableName);
         sql.createTableIfNotExist();
-        beginGarbageCollector(2, TimeUnit.HOURS);
+        beginGarbageCollector(2, TimeUnit.HOURS, broadcast);
     }
 
     @EventHandler
@@ -74,8 +74,8 @@ public final class AmbientMessenger implements Listener {
         sql.truncateTable();
     }
 
-    public void beginGarbageCollector(long cooldownTime, TimeUnit cooldownUnit) {
-        garbageCollector = new ScheduledGarbageCollector(sql, cooldownTime, cooldownUnit);
+    public void beginGarbageCollector(long cooldownTime, TimeUnit cooldownUnit, boolean broadcast) {
+        garbageCollector = new ScheduledGarbageCollector(sql, cooldownTime, cooldownUnit, broadcast);
         garbageCollector.begin();
     }
 
