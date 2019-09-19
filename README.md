@@ -18,7 +18,9 @@ Since the API listens to ``onPlayerJoin`` events, one must register the [Ambient
 This can be done like so:
 
 ```java
-AmbientMessenger ambientMessenger = new AmbientMessenger(#, true); // true in the broadcast field - will broadcast garbage collector debug messages
+// "#" is an SQL Connection object,
+// and true in the broadcast field means will broadcast garbage collector debug messages
+AmbientMessenger ambientMessenger = new AmbientMessenger(#, true);
 getServer().getPluginManager().registerEvents(ambientMessenger, this);
 // do what you want with your AmbientMessenger...
 ```
