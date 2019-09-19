@@ -23,12 +23,11 @@ public abstract class RepeatingTask {
             }
         };
         scheduledExecutorService.scheduleAtFixedRate(task, 0, cooldownAmount, cooldownTimeUnit);
-        scheduledExecutorService.shutdown();
     }
 
     public void stop() {
         if (scheduledExecutorService != null) {
-            scheduledExecutorService.shutdownNow();
+            scheduledExecutorService.shutdown();
             scheduledExecutorService = null;
         }
     }
