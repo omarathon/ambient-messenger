@@ -33,7 +33,7 @@ Once you have constructed an AmbientMessenger and registered it as a listener, y
 
 You can use use the ``beginGarbageCollector`` method to reset the garbage collector to run on a given cooldown, by passing it the cooldown time as a long and the cooldown time unit as a [TimeUnit](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html). By default, the cooldown for garbage collection is set to **2 hours**.
 
-## Shutdown Note
+### Shutdown Note
 
 When your plugin shuts down, i.e in its ``onDisable`` method, you **must** stop the garbage collector.
 
