@@ -25,7 +25,7 @@ getServer().getPluginManager().registerEvents(ambientMessenger, this);
 
 (where **#** is an SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object).
 
-When constructing an AmbientMessenger, one must provide to it their SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object, from which SQL queries shall be executed from, and additionally the name of the table for the plugin to use. By default, it uses a table named **AmbientMessenger_Messages**.
+When constructing an AmbientMessenger, one must provide to it their SQL [Connection](https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html) object, from which SQL queries shall be executed from, a boolean representing whether to broadcast execution of the garbage collector, and additionally the name of the table for the plugin to use. By default, it uses a table named **AmbientMessenger_Messages**.
 
 Once you have constructed an AmbientMessenger and registered it as a listener, you may use the ``sendMessage`` function to send an ambient message to a player. You must provide the [OfflinePlayer](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/OfflinePlayer.html) object, the message String, and the SQL [Timestamp](https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html) for when the message shall expire.
 
@@ -36,6 +36,6 @@ You can use use the ``beginGarbageCollector`` method to reset the garbage collec
 Below is a tl;dr for the main methods provided by the [AmbientMessenger](src/main/java/dev/omarathon/ambientmessenger/AmbientMessenger.java):
 
 - ``sendMessage`` - Send an ambient message to a given [OfflinePlayer](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/OfflinePlayer.html). You must provide the [OfflinePlayer](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/OfflinePlayer.html) to send it to, the String of the message and the SQL [Timestamp](https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html) for when the message will expire. If the [OfflinePlayer](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/OfflinePlayer.html) is online, it's sent to them instantly as normal. Otherwise, it's sent to them when they re-join the server, if it has not expired.
-- ``beginGarbageCollector`` - Constructs a [ScheduledGarbageCollector](src/main/java/dev/omarathon/ambientmessenger/garbagecollector/ScheduledGarbageCollector.java) and sets it running with a given cooldown. Note that it's ran as soon as this method is called, and then it will be ran indefinitely on a cooldown as specified.
+- ``beginGarbageCollector`` - Constructs a [ScheduledGarbageCollector](src/main/java/dev/omarathon/ambientmessenger/garbagecollector/ScheduledGarbageCollector.java) and sets it running with a given cooldown and boolean dictating whether it shall broadcast its execution. Note that it's ran as soon as this method is called, and then it will be ran indefinitely on a cooldown as specified.
 - ``emptyQueue`` - An additional admin method for if you'd like to cancel all of the ambient messages in the queue (essentially empties the internal database table).
 
