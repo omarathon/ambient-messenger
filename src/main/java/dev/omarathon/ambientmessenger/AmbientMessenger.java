@@ -46,6 +46,7 @@ public final class AmbientMessenger implements Listener {
                 player.sendMessage(messages.getString(SqlConstants.MESSAGE_FIELD));
                 sql.deleteMessage(messages.getInt(SqlConstants.ID_FIELD));
             }
+            messages.close();
         }
         catch (SQLException e) {
             Bukkit.getLogger().severe("Error occurred in either obtaining or processing ambient messages on new player join event for player with UUID " + player.getUniqueId().toString());

@@ -20,6 +20,7 @@ public class Sql {
                 "CREATE TABLE IF NOT EXISTS " + table + " (" + SqlConstants.ID_FIELD + " MEDIUMINT NOT NULL AUTO_INCREMENT, " + SqlConstants.UUID_FIELD + " CHAR(36) NOT NULL, " + SqlConstants.MESSAGE_FIELD + " TEXT NOT NULL, " + SqlConstants.EXPIRY_FIELD + " TIMESTAMP NOT NULL, PRIMARY KEY (" + SqlConstants.ID_FIELD + "))"
         );
         statement.execute();
+        statement.close();
     }
 
     public void addMessage(String uuid, String message, Timestamp expiry) throws SQLException {
@@ -30,6 +31,7 @@ public class Sql {
         statement.setString(2, message);
         statement.setTimestamp(3, expiry);
         statement.execute();
+        statement.close();
     }
 
     public ResultSet getMessages(String uuid) throws SQLException {
@@ -37,7 +39,9 @@ public class Sql {
                 "SELECT * FROM " + table + " WHERE " + SqlConstants.UUID_FIELD + "=?"
         );
         statement.setString(1, uuid);
-        return statement.executeQuery();
+        ResultSet rs = statement.executeQuery();
+        statement.close();
+        return rs;
     }
 
     public void deleteMessage(int id) throws SQLException {
@@ -46,6 +50,7 @@ public class Sql {
         );
         statement.setInt(1, id);
         statement.execute();
+        statement.close();
     }
 
     public void deleteExpiredMessages() throws SQLException {
@@ -53,6 +58,7 @@ public class Sql {
                 "DELETE FROM " + table + " WHERE " + SqlConstants.EXPIRY_FIELD + " >= CURRENT_TIMESTAMP"
         );
         statement.execute();
+        statement.close();
     }
 
     public void truncateTable() throws SQLException {
@@ -60,6 +66,7 @@ public class Sql {
                 "TRUNCATE TABLE " + table
         );
         statement.execute();
+        statement.close();
     }
 
     public Connection getConnection() {
