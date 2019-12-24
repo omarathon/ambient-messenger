@@ -69,6 +69,12 @@ public class Sql {
         statement.close();
     }
 
+    public void close() throws SQLException {
+        if (!connection.isClosed()) {
+            connection.close();
+        }
+    }
+
     public Connection getConnection() {
         return connection;
     }

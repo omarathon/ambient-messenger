@@ -80,6 +80,11 @@ public final class AmbientMessenger implements Listener {
         garbageCollector.begin();
     }
 
+    public void disable() throws SQLException {
+        garbageCollector.stop(); // stop garbage collector
+        sql.close(); // close SQLConnection
+    }
+
     public ScheduledGarbageCollector getGarbageCollector() {
         return garbageCollector;
     }
