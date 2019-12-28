@@ -1,4 +1,4 @@
 name: AmbientMessenger
-version: 1.0-SNAPSHOT
+version: 1.4-SNAPSHOT
 main: dev.omarathon.ambientmessenger.AmbientMessenger
 api-version: 1.13

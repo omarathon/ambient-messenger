@@ -40,7 +40,6 @@ public class Sql {
         );
         statement.setString(1, uuid);
         ResultSet rs = statement.executeQuery();
-        statement.close();
         return rs;
     }
 
