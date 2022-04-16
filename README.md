@@ -2,6 +2,8 @@
 
 # Ambient Messenger
 
+https://www.spigotmc.org/resources/ambient-messenger-1-8-8-1-18-x.101411/
+
 A Minecraft Server API plugin which allows the sending of "ambient" messages, i.e messages to players whether they're online or offline.
 
 If the [OfflinePlayer](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/OfflinePlayer.html) object is online, the message is simply sent as normal.
