@@ -58,4 +58,4 @@ Below is a tl;dr for the main methods provided by the [AmbientMessenger](src/mai
 
 ## License
 
-While the source code for RedditCraft is licensed under GPL and is free to build yourself, you are not permitted to re-distribute the software in any way, nor harness the code in any way beyond viewing without an appropriate Copyright linking to this repository and the owner (Omar Tanner).
+While the source code for ambient-messenger is licensed under GPL and is free to build yourself, you are not permitted to re-distribute the software in any way, nor harness the code in any way beyond viewing without an appropriate Copyright linking to this repository and the owner (Omar Tanner).
