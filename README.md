@@ -55,3 +55,7 @@ Below is a tl;dr for the main methods provided by the [AmbientMessenger](src/mai
 - ``beginGarbageCollector`` - Constructs a [ScheduledGarbageCollector](src/main/java/dev/omarathon/ambientmessenger/garbagecollector/ScheduledGarbageCollector.java) and sets it running with a given cooldown and boolean dictating whether it shall broadcast its execution. Note that it's ran as soon as this method is called, and then it will be ran indefinitely on a cooldown as specified.
 - ``emptyQueue`` - An additional admin method for if you'd like to cancel all of the ambient messages in the queue (essentially empties the internal database table).
 - ``disable`` - Shutdown method for AmbientMessenger. You must call this from your ``onDisable``.
+
+## License
+
+While the source code for RedditCraft is licensed under GPL and is free to build yourself, you are not permitted to re-distribute the software in any way, nor harness the code in any way beyond viewing without an appropriate Copyright linking to this repository and the owner (Omar Tanner).
